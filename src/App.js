@@ -1,8 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export const App = props => {
   const [state, setState] = useState(props);
   const { name, price } = state;
+
+  useEffect(() => {
+    console.log("use effect");
+  });
+
+  useEffect(() => {
+    console.log("use effect: Didmout");
+  }, []);
+
+  useEffect(() => {
+    console.log("use effect: NameOnly");
+  }, [name]);
 
   return (
     <>
