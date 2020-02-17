@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-function App() {
+export const App = () => {
+  const [count, setCount] = useState(0);
+
+  const increment = () => setCount(count + 1);
+  const decreament = () => setCount(count - 1);
+  const reset = () => setCount(0);
+  const double = () => setCount(count * 2);
+  const divide3 = () => setCount(count % 3 === 0 ? count / 3 : count);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>Hello React</div>
+      <div>count: {count}</div>
+      <button onClick={increment}>+</button>
+      <button onClick={decreament}>-</button>
+      <button onClick={double}>*2</button>
+      <button onClick={reset}>reset</button>
+      <button onClick={divide3}>fizz3</button>
+    </>
   );
-}
-
-export default App;
+};
